@@ -79,7 +79,7 @@ export default function WelcomeRewardModal({
           </div>
           <div className="welcome-perk-row">
             <div className="perk-bullet-dot" />
-            <span><strong>5 Teaching Languages:</strong> English, Hinglish, Tenglish, Hindi, and Telugu with natural voice audio.</span>
+            <span><strong>5 Teaching Languages:</strong> English, Hindi, Telugu, Hinglish, and Tenglish with natural voice audio.</span>
           </div>
         </div>
 

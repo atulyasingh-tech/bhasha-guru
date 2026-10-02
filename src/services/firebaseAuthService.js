@@ -24,6 +24,7 @@ export function getStoredAuthUser() {
  */
 export async function loginWithGoogle() {
   try {
+    googleProvider.setCustomParameters({ prompt: 'select_account' });
     const result = await signInWithPopup(auth, googleProvider);
     const user = {
       uid: result.user.uid,
@@ -134,7 +135,10 @@ export function subscribeToAuthChanges(callback) {
       const stored = getStoredAuthUser();
       if (stored && stored.provider === 'student_instant') {
         callback(stored);
-      } else if (!stored) {
+      } else {
+        try {
+          localStorage.removeItem(AUTH_USER_KEY);
+        } catch (e) {}
         callback(null);
       }
     }

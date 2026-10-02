@@ -105,10 +105,10 @@ export default function Navbar({
               onChange={(e) => onChangeLanguage(e.target.value)}
             >
               <option value="English">English</option>
-              <option value="Hinglish">Hinglish (Hindi+Eng)</option>
-              <option value="Tenglish">Tenglish (Telugu+Eng)</option>
-              <option value="Hindi">Hindi (Pure)</option>
-              <option value="Telugu">Telugu (Pure)</option>
+              <option value="Hindi">Hindi</option>
+              <option value="Telugu">Telugu</option>
+              <option value="Hinglish">Hinglish</option>
+              <option value="Tenglish">Tenglish</option>
             </select>
           </div>
         </div>
@@ -181,7 +181,7 @@ export default function Navbar({
             <button
               type="button"
               className="google-signin-btn glass-panel"
-              onClick={onOpenAuthModal || onSignInGoogle}
+              onClick={onSignInGoogle || onOpenAuthModal}
               title="Sign in to BhashaGuru"
             >
               <svg className="google-icon-svg" viewBox="0 0 24 24" width="16" height="16">

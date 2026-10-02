@@ -26,7 +26,7 @@ export const DEFAULT_PROFILE = {
   totalScale: 100,            // 100, 470, 10, etc.
   calculatedPercentage: 80,   // normalized 0 - 100
   tier: 'Intermediate',       // 'Foundation' | 'Intermediate' | 'Advanced'
-  language: 'English',        // 'English' | 'Hinglish' | 'Tenglish' | 'Hindi' | 'Telugu'
+  language: 'English',        // 'English' | 'Hindi' | 'Telugu' | 'Hinglish' | 'Tenglish'
   avatarId: 'einstein',       // 'einstein' | 'hypatia' | 'ramanujan' | 'curie' | 'astronaut' | 'atom' | 'robot' | 'neural' | 'custom'
   customAvatarUrl: null,
   selectedSubject: 'Physics',

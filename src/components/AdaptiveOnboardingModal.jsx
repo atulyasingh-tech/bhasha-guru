@@ -820,10 +820,10 @@ export default function AdaptiveOnboardingModal({
               <div className="grid grid-3 gap-2">
                 {[
                   { id: 'English', title: 'English', desc: 'Standard formal English conceptual explanations' },
-                  { id: 'Hinglish', title: 'Hinglish', desc: 'Natural Hindi-English fusion for everyday intuition' },
-                  { id: 'Tenglish', title: 'Tenglish', desc: 'Intuitive Telugu-English blend popular in AP & TS' },
                   { id: 'Hindi', title: 'Hindi', desc: 'Standard conversational Hindi explanations' },
-                  { id: 'Telugu', title: 'Telugu', desc: 'Standard conversational Telugu explanations' }
+                  { id: 'Telugu', title: 'Telugu', desc: 'Standard conversational Telugu explanations' },
+                  { id: 'Hinglish', title: 'Hinglish', desc: 'Natural Hindi-English fusion for everyday intuition' },
+                  { id: 'Tenglish', title: 'Tenglish', desc: 'Intuitive Telugu-English blend popular in AP & TS' }
                 ].map(d => (
                   <button
                     key={d.id}

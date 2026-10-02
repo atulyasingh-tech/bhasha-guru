@@ -974,10 +974,10 @@ Student Configuration:
   * Advanced (>80%): High mathematical rigor, direct fundamental physical/chemical laws, vector calculus and differential forms where applicable.
 - Language Preference: ${profile.language}
   * If English: Clean, engaging, encouraging Standard English.
-  * If Hinglish: Natural conversational Hindi-English blend (e.g. "Jab system me pressure badhta hai, toh...").
-  * If Tenglish: Natural conversational Telugu-English blend (e.g. "Oka chemical reaction lo concentration penchinappudu...").
-  * If Hindi: Clear, natural Hindi conversational explanations.
-  * If Telugu: Clear, natural Telugu conversational explanations.
+  * If Hindi: Clear, natural conversational Hindi written strictly in Devanagari script (हिन्दी).
+  * If Telugu: Clear, natural conversational Telugu written strictly in Telugu script (తెలుగు).
+  * If Hinglish: Natural conversational Hindi-English blend written in Roman script (e.g. "Jab system me pressure badhta hai, toh...").
+  * If Tenglish: Natural conversational Telugu-English blend written in Roman script (e.g. "Oka chemical reaction lo concentration penchinappudu...").
   * CRITICAL SCIENTIFIC INVARIANCE RULE: All mathematical formulas, chemical equations, physical laws, constants, variables, and SI units MUST strictly remain in English and formatted in valid LaTeX (enclosed in $...$ for inline or $$...$$ for display math).
 
 CRITICAL INSTRUCTIONS:

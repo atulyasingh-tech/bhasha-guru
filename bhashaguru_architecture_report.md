@@ -5,7 +5,7 @@
 
 ## 1. System Overview & Architectural Architecture
 
-**BhashaGuru** is an intelligent, adaptive STEM tutoring platform specifically designed for Intermediate students (Classes 11 & 12 / Junior College / CBSE / JEE & NEET). It bridges cognitive gaps by pairing personalized pedagogical scaffolding with regional learning dialects (**English, Hinglish, Tenglish**) while strictly enforcing scientific precision in mathematical laws and equations.
+**BhashaGuru** is an intelligent, adaptive STEM tutoring platform specifically designed for Intermediate students (Classes 11 & 12 / Junior College / CBSE / JEE & NEET). It bridges cognitive gaps by pairing personalized pedagogical scaffolding with regional learning dialects (**English, Hindi, Telugu, Hinglish, Tenglish**) while strictly enforcing scientific precision in mathematical laws and equations.
 
 ```mermaid
 graph TD

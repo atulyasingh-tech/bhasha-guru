@@ -1,5 +1,5 @@
 // Authentication Modal for BhashaGuru
-// Supports Google OAuth & Instant 1-Click Student Profiles with session persistence
+// Supports Google OAuth & Try as a demo student with session persistence
 
 import React, { useState } from 'react';
 import { 
@@ -42,39 +42,6 @@ const PRESET_STUDENT_PERSONAS = [
     badge: 'Class 12 BiPC • NEET Aspirant',
     desc: 'Focusing on molecular biology, chemical equilibria & high-rigor proofs.',
     color: '#00E599'
-  },
-  {
-    id: 'aditya',
-    name: 'Aditya Verma',
-    avatarId: 'ramanujan',
-    educationLevel: 'B.Tech',
-    btechYear: '1st Year',
-    stream: 'MPC',
-    branch: 'CSE',
-    specialization: 'Pharmaceutics',
-    tier: 'Advanced',
-    score: 86,
-    calculatedPercentage: 86,
-    selectedSubject: 'Engineering Physics',
-    badge: 'B.Tech CSE • 1st Year',
-    desc: 'Engineering mechanics, quantum wells & computational algorithms.',
-    color: '#7B61FF'
-  },
-  {
-    id: 'sneha',
-    name: 'Dr. Sneha Reddy',
-    avatarId: 'hypatia',
-    educationLevel: 'Pharmacy',
-    stream: 'BiPC',
-    branch: 'Mechanical',
-    specialization: 'Pharmaceutics',
-    tier: 'Foundation',
-    score: 72,
-    calculatedPercentage: 72,
-    selectedSubject: 'Pharmaceutics',
-    badge: 'Pharmacy • GPAT Track',
-    desc: 'Pharmacokinetics, drug bioavailability & formulation science.',
-    color: '#FFB800'
   }
 ];
 
@@ -85,6 +52,7 @@ export default function AuthModal({
 }) {
   const [isLoadingGoogle, setIsLoadingGoogle] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  const [devWarning, setDevWarning] = useState('');
   const [showCustomForm, setShowCustomForm] = useState(false);
   const [customName, setCustomName] = useState('');
   const [customTrack, setCustomTrack] = useState('Class 11');
@@ -95,27 +63,26 @@ export default function AuthModal({
   const handleGoogleSignIn = async () => {
     setIsLoadingGoogle(true);
     setErrorMessage('');
+    setDevWarning('');
     try {
       const res = await loginWithGoogle();
       if (res.success && res.user) {
         soundService.playXpGain();
         onLoginSuccess(res.user, null);
       } else {
-        // Friendly domain/popup notice
-        if (res.code === 'auth/unauthorized-domain') {
-          setErrorMessage(
-            'Google Sign-In domain authorization is pending for this preview URL. Use Instant 1-Click Student Access below for instant access!'
-          );
-        } else if (res.code === 'auth/popup-blocked') {
-          setErrorMessage('Sign-In popup was blocked by your browser. Please allow popups or use Instant Student Access.');
-        } else if (res.code === 'auth/popup-closed-by-user') {
-          setErrorMessage('Sign-in cancelled. You can sign in anytime or choose a Student Profile below.');
-        } else {
-          setErrorMessage(res.error || 'Failed to sign in with Google. You can use Instant Student Access below.');
+        // Friendly message under the button: no raw error codes shown
+        setErrorMessage("Google sign-in isn't available right now. You can continue as a demo student below.");
+
+        // Show the domain authorization pending warning ONLY when running locally (import.meta.env.DEV)
+        if (import.meta.env.DEV && res.code === 'auth/unauthorized-domain') {
+          setDevWarning('Google Sign-In domain authorization is pending');
         }
       }
     } catch (err) {
-      setErrorMessage('Could not complete Google Sign-In. You can sign in instantly using the Student Profiles below.');
+      setErrorMessage("Google sign-in isn't available right now. You can continue as a demo student below.");
+      if (import.meta.env.DEV) {
+        setDevWarning('Google Sign-In domain authorization is pending');
+      }
     } finally {
       setIsLoadingGoogle(false);
     }
@@ -155,12 +122,11 @@ export default function AuthModal({
   const handleCustomSubmit = (e) => {
     e.preventDefault();
     const trimmed = customName.trim() || 'Student Scholar';
-    const isCollege = customTrack === 'B.Tech' || customTrack === 'Diploma' || customTrack === 'Pharmacy';
     const res = loginStudentDemo({
       name: trimmed,
       avatarId: 'einstein',
       educationLevel: customTrack,
-      stream: isCollege ? 'MPC' : customStream,
+      stream: customStream,
       tier: 'Intermediate'
     });
 
@@ -171,7 +137,7 @@ export default function AuthModal({
         username: trimmed.toLowerCase().replace(/[^a-z0-9]/g, '_'),
         avatarId: 'einstein',
         educationLevel: customTrack,
-        stream: isCollege ? 'MPC' : customStream,
+        stream: customStream,
         tier: 'Intermediate',
         score: 80,
         calculatedPercentage: 80,
@@ -214,16 +180,6 @@ export default function AuthModal({
           </p>
         </div>
 
-        {/* Error Notice if any */}
-        {errorMessage && (
-          <div className="auth-error-alert animate-fade-in">
-            <AlertCircle size={18} className="text-amber flex-shrink-0" />
-            <div className="auth-error-text">
-              <span>{errorMessage}</span>
-            </div>
-          </div>
-        )}
-
         {/* Primary Action: Continue with Google */}
         <div className="auth-google-section">
           <button
@@ -246,16 +202,31 @@ export default function AuthModal({
               {isLoadingGoogle ? 'Connecting with Google...' : 'Continue with Google'}
             </span>
           </button>
+
+          {/* Friendly message under the button without raw error codes */}
+          {errorMessage && (
+            <p className="auth-friendly-notice animate-fade-in">
+              {errorMessage}
+            </p>
+          )}
+
+          {/* Warning only shown when running locally (import.meta.env.DEV), hidden in production */}
+          {import.meta.env.DEV && devWarning && (
+            <div className="auth-dev-warning animate-fade-in">
+              <AlertCircle size={14} className="text-amber flex-shrink-0" />
+              <span>{devWarning}</span>
+            </div>
+          )}
         </div>
 
-        {/* Divider with Instant Access Heading */}
+        {/* Divider with Demo Access Heading */}
         <div className="auth-divider-wrap">
           <div className="auth-divider-line" />
-          <span className="auth-divider-text">OR INSTANT 1-CLICK STUDENT ACCESS</span>
+          <span className="auth-divider-text">OR TRY AS A DEMO STUDENT</span>
           <div className="auth-divider-line" />
         </div>
 
-        {/* Instant Student Profiles Grid */}
+        {/* Demo Student Profiles Grid (Class 11 & 12: Arjun & Priya) */}
         <div className="auth-personas-grid">
           {PRESET_STUDENT_PERSONAS.map((persona) => (
             <button
@@ -263,7 +234,7 @@ export default function AuthModal({
               type="button"
               className="auth-persona-card glass-panel"
               onClick={() => handleSelectPersona(persona)}
-              title={`Sign in instantly as ${persona.name}`}
+              title={`Try as a demo student: ${persona.name}`}
             >
               <div className="persona-card-header">
                 <AvatarDisplay 
@@ -316,20 +287,15 @@ export default function AuthModal({
                 >
                   <option value="Class 11">Class 11</option>
                   <option value="Class 12">Class 12</option>
-                  <option value="B.Tech">B.Tech</option>
-                  <option value="Diploma">Diploma</option>
-                  <option value="Pharmacy">Pharmacy</option>
                 </select>
-                {(customTrack === 'Class 11' || customTrack === 'Class 12') && (
-                  <select
-                    value={customStream}
-                    onChange={(e) => setCustomStream(e.target.value)}
-                    className="auth-select-field"
-                  >
-                    <option value="MPC">MPC</option>
-                    <option value="BiPC">BiPC</option>
-                  </select>
-                )}
+                <select
+                  value={customStream}
+                  onChange={(e) => setCustomStream(e.target.value)}
+                  className="auth-select-field"
+                >
+                  <option value="MPC">MPC</option>
+                  <option value="BiPC">BiPC</option>
+                </select>
                 <button
                   type="submit"
                   className="primary-btn btn-glow custom-submit-btn"

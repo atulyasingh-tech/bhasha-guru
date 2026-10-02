@@ -1,5 +1,5 @@
 // Rich STEM Curriculum Dataset for Classes 11 & 12
-// Fully localized across English, Hinglish, and Tenglish
+// Fully localized across English, Hindi, Telugu, Hinglish, and Tenglish
 // Structured for Foundation, Intermediate, and Advanced tiers
 
 export const DEMO_TOPICS = [

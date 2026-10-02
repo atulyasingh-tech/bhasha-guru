@@ -306,10 +306,10 @@ export default function DiagnosticOnboardingModal({
             <div className="grid grid-3 gap-2">
               {[
                 { id: 'English', label: 'English', sample: 'Standard formal English' },
-                { id: 'Hinglish', label: 'Hinglish', sample: 'Hindi + English fusion' },
-                { id: 'Tenglish', label: 'Tenglish', sample: 'Telugu + English blend' },
                 { id: 'Hindi', label: 'Hindi', sample: 'Standard pure Hindi' },
-                { id: 'Telugu', label: 'Telugu', sample: 'Standard pure Telugu' }
+                { id: 'Telugu', label: 'Telugu', sample: 'Standard pure Telugu' },
+                { id: 'Hinglish', label: 'Hinglish', sample: 'Hindi + English fusion' },
+                { id: 'Tenglish', label: 'Tenglish', sample: 'Telugu + English blend' }
               ].map(d => (
                 <button
                   key={d.id}
