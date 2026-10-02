@@ -1,3 +1,5 @@
+# 🚀 Live Working Demo: https://bhasha-guru-3lgbtyr3e-aks-7e27.vercel.app/
+
 BhashaGuru: AI-Powered Adaptive STEM Learning Platform
 Intermediate Classes 11 & 12 | Antigravity AI Engine (Gemini 3.8 / 2.5 Flash)
 
