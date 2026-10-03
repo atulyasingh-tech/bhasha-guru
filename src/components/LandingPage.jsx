@@ -3,9 +3,9 @@
 // Simple, student-friendly copy, Live Dialect Demo, Misconception Buster, and 4-step stepper
 
 import React, { useState } from 'react';
-import { 
-  Sparkles, ArrowRight, CheckCircle2, ChevronRight, 
-  HelpCircle, Trophy, Check, X, Lock, RotateCcw, 
+import {
+  Sparkles, ArrowRight, CheckCircle2, ChevronRight,
+  HelpCircle, Trophy, Check, X, Lock, RotateCcw,
   BookOpen, Brain, Zap, Compass, Lightbulb,
   Languages, Sigma, TrendingUp
 } from 'lucide-react';
@@ -340,6 +340,136 @@ export default function LandingPage({ onStartLearning, onExploreDemo }) {
         </div>
       </section>
 
+      {/* ==========================================================================
+    WHAT IS STEM? 4-PILLAR INFOGRAPHIC SECTION
+    Placed directly after "How It Works"
+    ========================================================================== */}
+      <section className="landing-section stem-infographic-section">
+        <div className="section-header-center">
+          <div className="section-tag">
+            <span>FOUNDATIONAL FRAMEWORK</span>
+          </div>
+          <h2 className="section-title">What is STEM in Intermediate Pedagogy?</h2>
+          <p className="section-desc">
+            STEM represents the interconnected bedrock of Classes 11 &amp; 12. BhashaGuru bridges conceptual intuition across every pillar without diluting standard mathematical rigor.
+          </p>
+        </div>
+
+        <div className="stem-infographic-grid">
+          {/* S - Science */}
+          <div className="stem-pillar-card stem-pillar-s glass-panel">
+            <div className="stem-pillar-header">
+              <div className="stem-letter-badge stem-letter-s">S</div>
+              <div className="stem-icon-orbit">🔬</div>
+            </div>
+            <div>
+              <h3 className="stem-pillar-name">Science</h3>
+              <span className="stem-pillar-subtag">Physics &amp; Chemistry</span>
+              <p className="stem-pillar-desc">
+                Unraveling natural physical laws, atomic structures, and fundamental thermodynamics with pure conceptual clarity.
+              </p>
+              <ul className="stem-pillar-bullets">
+                <li>
+                  <span className="stem-bullet-dot dot-cyan"></span>
+                  <span>Empirical observation &amp; field theories</span>
+                </li>
+                <li>
+                  <span className="stem-bullet-dot dot-cyan"></span>
+                  <span>Mechanics, Optics &amp; Chemical Kinetics</span>
+                </li>
+              </ul>
+            </div>
+            <div className="stem-pillar-footer">
+              <span className="stem-domain-chip chip-cyan">Curiosity &amp; Inquiry</span>
+            </div>
+          </div>
+
+          {/* T - Technology */}
+          <div className="stem-pillar-card stem-pillar-t glass-panel">
+            <div className="stem-pillar-header">
+              <div className="stem-letter-badge stem-letter-t">T</div>
+              <div className="stem-icon-orbit">⚡</div>
+            </div>
+            <div>
+              <h3 className="stem-pillar-name">Technology</h3>
+              <span className="stem-pillar-subtag">Computation &amp; Automation</span>
+              <p className="stem-pillar-desc">
+                Leveraging digital architectures, algorithms, and computational modeling to solve complex analytical equations.
+              </p>
+              <ul className="stem-pillar-bullets">
+                <li>
+                  <span className="stem-bullet-dot dot-purple"></span>
+                  <span>Real-time simulations &amp; data modeling</span>
+                </li>
+                <li>
+                  <span className="stem-bullet-dot dot-purple"></span>
+                  <span>Algorithmic logic &amp; systems design</span>
+                </li>
+              </ul>
+            </div>
+            <div className="stem-pillar-footer">
+              <span className="stem-domain-chip chip-purple">Innovation &amp; Tools</span>
+            </div>
+          </div>
+
+          {/* E - Engineering */}
+          <div className="stem-pillar-card stem-pillar-e glass-panel">
+            <div className="stem-pillar-header">
+              <div className="stem-letter-badge stem-letter-e">E</div>
+              <div className="stem-icon-orbit">⚙️</div>
+            </div>
+            <div>
+              <h3 className="stem-pillar-name">Engineering</h3>
+              <span className="stem-pillar-subtag">Applied Systems &amp; Design</span>
+              <p className="stem-pillar-desc">
+                Translating theoretical board laws into real-world structures, aerospace systems, electronics, and machines.
+              </p>
+              <ul className="stem-pillar-bullets">
+                <li>
+                  <span className="stem-bullet-dot dot-emerald"></span>
+                  <span>Submarines, Maglev brakes &amp; circuits</span>
+                </li>
+                <li>
+                  <span className="stem-bullet-dot dot-emerald"></span>
+                  <span>Iterative stress &amp; load problem-solving</span>
+                </li>
+              </ul>
+            </div>
+            <div className="stem-pillar-footer">
+              <span className="stem-domain-chip chip-emerald">Real-World Application</span>
+            </div>
+          </div>
+
+          {/* M - Mathematics */}
+          <div className="stem-pillar-card stem-pillar-m glass-panel">
+            <div className="stem-pillar-header">
+              <div className="stem-letter-badge stem-letter-m">M</div>
+              <div className="stem-icon-orbit">📐</div>
+            </div>
+            <div>
+              <h3 className="stem-pillar-name">Mathematics</h3>
+              <span className="stem-pillar-subtag">The Universal Language</span>
+              <p className="stem-pillar-desc">
+                The invariant spine that unifies science and engineering—governed strictly by international KaTeX formulas and SI units.
+              </p>
+              <ul className="stem-pillar-bullets">
+                <li>
+                  <span className="stem-bullet-dot dot-gold"></span>
+                  <span>Calculus, Vectors &amp; Trigonometry</span>
+                </li>
+                <li>
+                  <span className="stem-bullet-dot dot-gold"></span>
+                  <span>Invariant equations across all dialects</span>
+                </li>
+              </ul>
+            </div>
+            <div className="stem-pillar-footer">
+              <span className="stem-domain-chip chip-gold">Strict Invariance</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 4. MISCONCEPTION BUSTER (In Place of the Removed STEM Infographic Section) */}
       <section className="landing-section quiz-sample-section">
         <div className="section-header-center">
@@ -360,8 +490,8 @@ export default function LandingPage({ onStartLearning, onExploreDemo }) {
               <span>Conceptual Trap Test • Physics: Fluids</span>
             </div>
             {quizAnswer && (
-              <button 
-                type="button" 
+              <button
+                type="button"
                 className="quiz-reset-btn"
                 onClick={() => setQuizAnswer(null)}
                 title="Reset question"
@@ -500,7 +630,7 @@ export default function LandingPage({ onStartLearning, onExploreDemo }) {
 
         <div className="mastery-funnel-grid">
           {MASTERY_TIERS.map((tier) => (
-            <div 
+            <div
               key={tier.tierNumber}
               className="funnel-tier-card glass-panel"
               style={{ borderTop: `3px solid ${tier.color}` }}
