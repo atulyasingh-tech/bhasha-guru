@@ -1,7 +1,7 @@
 # 🚀 BhashaGuru: AI-Powered Adaptive STEM Platform
 ### *Bridging Cognitive Gaps with Vernacular Scaffolding & Mathematical Precision*
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel%20Production-success?style=for-the-badge&logo=vercel)](https://inter-comparisons-home-seekers.trycloudflare.com/)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel%20Production-success?style=for-the-badge&logo=vercel)](https://bhasha-guru.vercel.app/)
 [![React](https://img.shields.io/badge/Frontend-React%2019%20%2B%20Vite%208-61DAFB?style=for-the-badge&logo=react)](https://react.dev/)
 [![AI Engine](https://img.shields.io/badge/AI%20Engine-Gemini%20Flash-orange?style=for-the-badge&logo=google)](https://ai.google.dev/)
 [![Math](https://img.shields.io/badge/Formulas-KaTeX%20LaTeX-00d084?style=for-the-badge)](https://katex.org/)
@@ -10,7 +10,7 @@
 
 ## 🌐 Live Application
 
-> **🔗 Production URL:** [https://bhasha-guru-3lgbtyr3e-aks-7e27.vercel.app/](https://bhasha-guru-3lgbtyr3e-aks-7e27.vercel.app/)  
+> **🔗 Production URL:** [https://bhasha-guru-3lgbtyr3e-aks-7e27.vercel.app/](https://bhasha-guru.vercel.app/)  
 > *(Permanently deployed and globally accessible on Vercel)*
 
 ---
